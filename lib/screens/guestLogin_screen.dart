@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:venyss/components/CommonButton.dart';
+import 'package:venyss/screens/guesthome_screen.dart';
+
+import '../constants.dart';
 
 class GuestLogin extends StatefulWidget {
   @override
@@ -11,6 +15,7 @@ class _GuestLoginState extends State<GuestLogin> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: kbuttonColor2,
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -26,33 +31,26 @@ class _GuestLoginState extends State<GuestLogin> {
                   height: 100,
                   child: Text("Continue as..."),
                 ),
-                Container(
-                  width: 220,
-                  child: OutlineButton(
-                    focusColor: Colors.black,
-                    // highlightColor: Colors.black,
-                    highlightedBorderColor: Colors.black,
-                    disabledBorderColor: Colors.black,
-                    onPressed: () {},
-                    child: Text("Guest"),
-                  ),
+                CommonButtom(
+                  title: "Guest",
+                  color: kbuttonColor2,
+                  onpress: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => GuestHome()),
+                    );
+                  },
                 ),
-                Container(
-                  width: 220,
-                  child: FlatButton(
-                    onPressed: () {},
-                    child: Text("login"),
-                    color: Colors.black12,
-                  ),
+                CommonButtom(
+                  title: "Login",
+                  color: kbuttonColor1,
+                  onpress: () {},
                 ),
                 Text("Or"),
-                Container(
-                  width: 220,
-                  child: FlatButton(
-                    onPressed: () {},
-                    child: Text("Partner"),
-                    color: Colors.black12,
-                  ),
+                CommonButtom(
+                  title: "Partner",
+                  color: kbuttonColor1,
+                  onpress: () {},
                 ),
               ],
             ),

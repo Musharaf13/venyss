@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:venyss/constants.dart';
 import 'package:venyss/screens/login_screen.dart';
 
 class Loading extends StatefulWidget {
@@ -22,13 +23,18 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        color: Colors.white,
-        child: Image(
-          // width: 100.0,
-          // height: 100.0,
-          // fit: BoxFit.fill,
-          image: new AssetImage('img/logo-standard.png'),
+      child: Scaffold(
+        backgroundColor: kbuttonColor2,
+        body: Center(
+                  child: Container(
+            color: Colors.white,
+            child: Image(
+              // width: 100.0,
+              // height: 100.0,
+              // fit: BoxFit.fill,
+              image: new AssetImage('img/logo-standard.png'),
+            ),
+          ),
         ),
       ),
     );

@@ -1,9 +1,14 @@
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:venyss/components/CustomBottomNaviagtionBar.dart';
 import 'package:venyss/screens/guestMe_screen.dart';
 import 'package:venyss/constants.dart';
+import 'package:venyss/screens/registration_screen.dart';
 import 'guestNotification_screen.dart';
 import 'guesthome_screen.dart';
+import 'package:venyss/components/AndroidDialogBox.Dart';
+import 'package:venyss/components/IOSDialogBox.Dart';
 
 class GuestOrders extends StatefulWidget {
   @override
@@ -43,8 +48,48 @@ class _GuestOrdersState extends State<GuestOrders> {
     });
   }
 
+//Code for Registration PopUp Android
+  Future<void> _showMyDialog() async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false, // user must tap button!
+      builder: (BuildContext context) {
+        return AndroidDialogBox(
+          title: "Register to view Orders and other features",
+          onPress: () {
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Registration()),
+            );
+          },
+        );
+      },
+    );
+  }
+
+//Code for Registration PopUp AndroidIOS
+  Future<void> _showMyDialogIOS() async {
+    return showDialog<void>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return IOSDialogBox(
+            title: "Register to view Orders and other features",
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Registration()),
+              );
+            },
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration.zero,
+        () => Platform.isAndroid ? _showMyDialog() : _showMyDialogIOS());
     return SafeArea(
       child: Scaffold(
         backgroundColor: kbuttonColor2,
@@ -55,12 +100,23 @@ class _GuestOrdersState extends State<GuestOrders> {
           elevation: 0,
           backgroundColor: kbuttonColor2,
         ),
-        body: Container(
-          child: Text(
-            "Registration Pop Up Under development",
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 30),
-          ),
+        body: Column(
+          children: [
+            Container(
+              child: Text(
+                "Registration Pop Up Under development",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 30),
+              ),
+            ),
+            FlatButton(
+              onPressed: () {
+                // _onAlertButtonPressed(context);
+                // _showMyDialog();
+              },
+              child: Text("Pop Up"),
+            ),
+          ],
         ),
         bottomNavigationBar: CustomBottomNavigationBar(
           currentIndex: 2,

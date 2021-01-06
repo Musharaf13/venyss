@@ -26,12 +26,9 @@ class _LoadingState extends State<Loading> {
       child: Scaffold(
         backgroundColor: kbuttonColor2,
         body: Center(
-                  child: Container(
+          child: Container(
             color: Colors.white,
             child: Image(
-              // width: 100.0,
-              // height: 100.0,
-              // fit: BoxFit.fill,
               image: new AssetImage('img/logo-standard.png'),
             ),
           ),

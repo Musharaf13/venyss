@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:venyss/Data%20Models/UserType.dart';
 import 'package:venyss/constants.dart';
 import 'package:venyss/screens/login_screen.dart';
 
@@ -15,15 +17,18 @@ class _LoadingState extends State<Loading> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Login())));
+      Duration(seconds: 3),
+      () => Navigator.pushNamed(context, '/guestLogin'),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        // appBar: AppBar(
+        //   title: Text(Provider.of<UserType>(context).userType),
+        // ),
         backgroundColor: kbuttonColor2,
         body: Center(
           child: Container(

@@ -2,8 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 // import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 import 'package:venyss/Data%20Models/UserType.dart';
 import 'package:venyss/components/CustomBottomNaviagtionBar.dart';
 import 'package:venyss/components/IOSDialogBox.dart';
@@ -115,8 +116,6 @@ class _GuestHomeState extends State<GuestHome> {
   String userType;
   @override
   void initState() {
-    // TODO: implement initState
-
     super.initState();
   }
 

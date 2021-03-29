@@ -215,6 +215,7 @@ class _GuestNotificationState extends State<GuestNotification> {
                     Container(
                       child: TextField(
                         controller: searchOrderController,
+                        
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: kbuttonColor2,

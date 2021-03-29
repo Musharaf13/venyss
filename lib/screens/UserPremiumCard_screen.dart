@@ -27,9 +27,7 @@ class PremiumCard extends StatelessWidget {
         padding: const EdgeInsets.all(24.0),
         child: Container(
           decoration: BoxDecoration(
-            border: Border.all(),
-            borderRadius: BorderRadius.circular(10)
-          ),
+              border: Border.all(), borderRadius: BorderRadius.circular(10)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
